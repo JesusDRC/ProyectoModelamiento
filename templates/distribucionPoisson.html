@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %} Distribucion de Poisson {% endblock %}
+{% block content %}
+{% if imagen %}
+<center>
+    <br><br>
+    <h4 style="font-family:monospace;"><strong>Grafica de los resultados</strong></h4>
+    <hr>
+</center>
+<h3 style="font-family:monospace;"><i class="bi bi-bar-chart-line"></i> Grafica de los datos Obtenidos</h3>
+<hr>
+<br>
+<div class="card cards  mb-3">
+    <img src="data:image/png;base64,{{imagen}}" class="img-fluid rounded-start" alt="grafica">
+    <div class="card cards text-center ">
+        <div class="card-header" style="font-family: 'Lucida Sans';">
+            <h5>Distribucion de Poisson con la obtneion de Landa </h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text"> Esta distribución es una de las más importantes distribuciones de variable discreta. Sus
+                principales aplicaciones hacen referencia a la modelización de situaciones en las que nos interesa determinar el
+                número de hechos de cierto tipo que se pueden producir en un intervalo de tiempo o de espacio, bajo presupuestos
+                de aleatoriedad y ciertas circunstancias restrictivas. Otro de sus usos frecuentes es la consideración límite de
+                procesos dicotómicos reiterados un gran número de veces si la probabilidad es muy pequeña.</p>
+        </div>
+    </div>
+</div>
+{% else %}
+<br><br>
+<center>
+    <h4 style="font-family:monospace;"><strong>Distribucion de Poisson</strong></h4>
+    <hr>
+    {% if error %}
+    <div class="alert alert-success" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <br><br>
+    <div class="card" style="width: 40rem;">
+        <div class="card-body">
+            <form action="/distribucionPoisson" method="POST">
+                <div class="mb-3">
+                    <input  type="number" class="form-control" placeholder="Landa" name="landa" required>     
+                </div>
+                <button type="submit" class="btn boton">Calcular</button>
+            </form>
+        </div>
+    </div>
+</center>
+<br><br><br><br>
+{% endif %}
+{% endblock %}

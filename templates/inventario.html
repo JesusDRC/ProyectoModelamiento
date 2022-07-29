@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %} Inventario {% endblock %}
+{% block content %}
+<center>
+    <br><br>
+    <h4 style="font-family:monospace;"><strong>Grafica de los resultados</strong></h4>
+    <hr>
+</center>
+<h3 style="font-family:monospace;"><i class="bi bi-app-indicator"></i> Datos Obtenidos</h3>
+<hr>
+<br>
+<div class="card cards">
+    <div class="card-body">
+        <table class="dataTable table table-bordered table-hover">
+            <thead>
+                {% for i in df.columns %}
+                <th>{{ i }}</th>
+                {% endfor %}
+            </thead>
+            <tbody>
+                {% for i in df.iterrows() %}
+                <tr>
+                    <td>{{ i[1][0] }}</td>
+                    <td>{{ i[1][1] }}</td>
+                    <td>{{ i[1][2] }}</td>
+                    <td>{{ i[1][3] }}</td>
+                    <td>{{ i[1][4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<br><br>
+
+<div class="card border-secondary mb-3">
+    <img src="data:image/png;base64,{{imagen}}" class="img-fluid rounded-start" alt="grafica">
+    <div class="card text-center border-secondary">
+        <div class="card-header border-secondary" style="font-family: 'Lucida Sans';">
+            <h5>Datos obtenidos de inventario</h5>
+        </div>
+        <div class="card-body">
+            <br>
+            <p class="card-text">Cantidad Optima de Pedito <strong>Q = {{datos['Q']}}</strong></p>
+            <p class="card-text">Costo total de Ordenar <strong>CoT = {{datos['CoT']}}</strong></p>
+            <p class="card-text">Costo total de Mantenimiento <strong>ChT = {{datos['ChT']}}</strong></p>
+            <p class="card-text">Costo Total de Ordenar y Mantener <strong> MO(O) = {{datos['MOQ']}}</strong></p>
+            <p class="card-text">Costo Total del Sistema <strong>CTT = {{datos['CTT']}}</strong></p>
+            <p class="card-text">Número total de pedidos <strong>totalp= {{datos['N']}}</strong></p>
+            <p class="card-text">Punto de reorden <strong>R {{datos['R']}}</strong></p>
+            <p class="card-text">Tiempo de Pedido <strong>T {{datos['T']}}</strong></p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

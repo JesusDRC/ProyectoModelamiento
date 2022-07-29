@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block title %} Cuadrados Medios {% endblock %}
+{% block content %}
+{% if imagen1 %}
+<center>
+    <br><br>
+    <h4 style="font-family:monospace;"><strong>Grafica de los resultados</strong></h4>
+    <hr>
+</center>
+<h3 style="font-family:monospace;"><i class="bi bi-app-indicator"></i> Datos Obtenidos</h3>
+<hr>
+<br>
+<div class="card cards">
+    <div class="card-body">
+        <table class="dataTable table table-bordered table-hover">
+            <thead>
+                {% for i in datos.columns %}
+                <th>{{ i }}</th>
+                {% endfor %}
+            </thead>
+            <tbody>
+                {% for i in datos.iterrows() %}
+                <tr>
+                    <td>{{ i[1][0] }}</td>
+                    <td>{{ i[1][1] }}</td>
+                    <td>{{ i[1][2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<br><br>
+<hr>
+<h3 style="font-family:monospace;"><i class="bi bi-bar-chart-line"></i> Grafica de los datos Obtenidos</h3>
+<hr>
+<br>
+<div class="card cards  mb-3">
+    <img src="data:image/png;base64,{{imagen1}}" class="img-fluid rounded-start" alt="grafica">
+    <div class="card cards text-center ">
+        <div class="card-header" style="font-family: 'Lucida Sans';">
+            <h5>Grafica de los cuadrados medios obteniendo los datos generados </h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text"> Los cuadrados medios son un procedimiento de análisis numérico en la que, dados un
+                conjunto de datos (pares ordenados y familia de funciones), se intenta determinar la función
+                continua
+                que mejor se aproxime a los datos (línea de regresión o la línea de mejor ajuste), proporcionando
+                una
+                demostración visual de la relación entre los puntos de los mismos. En su forma más simple, busca
+                minimizar la suma de cuadrados de las diferencias ordenadas (llamadas residuos) entre los puntos
+                generados por la función y los correspondientes datos.Este método se utiliza comúnmente para
+                analizar
+                una serie de datos que se obtengan de algún estudio, con el fin de expresar su comportamiento de
+                manera
+                lineal y así minimizar los errores de la data tomada.</p>
+        </div>
+    </div>
+</div>
+{% else %}
+<br><br>
+<center>
+    <h4 style="font-family:monospace;"><strong>Cuadrados medios</strong></h4>
+    <hr>
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <br><br><br><br>
+    <div class="card" style="width: 40rem;">
+        <div class="card-body">
+            <form action="/cuadradosMedios" method="post">
+                <div class="mb-3">
+                    <input type="number" class="form-control" placeholder="Numeros a generar" name="n">
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control" placeholder="Semilla" name="r">
+                </div>
+                <button type="submit" class="btn boton "><i class="bi bi-file-earmark-diff"></i> Calcular</button>
+            </form>
+        </div>
+    </div>
+</center>
+<br><br><br><br><br><br><br>
+{% endif %}
+{% endblock %}

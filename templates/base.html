@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{url_for('static', filename = 'modelamiento.ico')}}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                
+                <strong>Proyecto Final</strong>
+            </a>
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://docs.google.com/spreadsheets/d/1CEoErl_femnTBGUCK3zg2mxwJmda4Rme/edit?usp=sharing&ouid=110392099517400654669&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-arrow-down-circle"></i>   Descargar DataSet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Datos"><i class="bi bi-stickies"></i>   Info del DataSet y Analisis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Numerosaleatorios"><i class="bi bi-award-fill"></i>    Numeros Aleatorios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Pronosticos"><i class="bi bi-book"></i>    Pronosticos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/sistemaInv"><i class="bi bi-basket"></i>    Inventario</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/lineaespera"><i class="bi bi-clipboard-minus"></i>   Linea de Espera</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/sistemaMontecarlo"><i class="bi bi-bookmark-check"></i>   Montecarlo</a>
+                </li>
+                <!-- <li>
+                    <a href="../static/estilos.css" download="Manual">
+                        Manual de Usuario
+                        </a>
+                    </li> -->
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        {% block content %}
+
+        {% endblock %}
+        <hr>
+        <footer class="my-4 text-center">&copy;MODELAMIENTO Y SIMULACION SEXTO"A"</footer>
+    </div>
+</body>
+
+</html>

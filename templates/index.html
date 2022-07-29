@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %} Inicio {% endblock %}
+{% block content %}
+<br>
+<div class="container" >
+    <div class="card border-primary mb-3" >
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="nav-link" href="/">
+                <img src="{{ url_for('static', filename='uleam.png') }}" style="width: 250px; height:80px"
+                    class="card-img-top" alt="Grafica por fecha">
+            </a>
+            <center>
+                <a class="nav-link" href="#">Universidad Laica ELoy Alfaro de Manabi <br>
+                    Facultad de Ciencias Informaticas <br>
+                    Carrera Tecnologia de la Informacion</a>
+            </center>
+
+            <a class="nav-link" href="/">
+                <img src="{{ url_for('static', filename='facci.jpg') }}" style="width: 250px; height:80px"
+                    class="card-img-top" alt="Grafica por fecha">
+            </a>
+
+        </div>
+    </nav>
+    <img src="../static/embarazo-riesgo.jpg" class="img-fluid" alt="Responsive image">
+    <center>
+        
+        <h6> <strong>Tema:</strong> Conjunto de datos de riesgo de salud materna</h6>
+        <h6> <strong>Creado por:</strong> Reyes Carreño Jesús David</h6>
+        <h6> <strong>Materia:</strong> Modelamiento y Simulacion</h6>
+        <h6> <strong>Docente:</strong> Ing. Jorge Moya Delgado</h6>
+
+    </center>
+    </div>
+    
+</div>
+
+{% endblock %}

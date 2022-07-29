@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block title %} Congruencial Multiplicativa {% endblock %}
+{% block content %}
+{% if imagen %}
+<center>
+    <br><br>
+    <h4 style="font-family:monospace;"><strong>Grafica de los resultados</strong></h4>
+    <hr>
+</center>
+<h3 style="font-family:monospace;"><i class="bi bi-app-indicator"></i> Datos Obtenidos</h3>
+<hr>
+<br>
+<div class="card cards">
+    <div class="card-body">
+        <table class="dataTable table table-bordered table-hover">
+            <thead>
+                {% for i in datos.columns %}
+                <th>{{ i }}</th>
+                {% endfor %}
+            </thead>
+            <tbody>
+                {% for i in datos.iterrows() %}
+                <tr>
+                    <td>{{ i[1][0] }}</td>
+                    <td>{{ i[1][1] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<br><br>
+<hr>
+<h3 style="font-family:monospace;"><i class="bi bi-bar-chart-line"></i> Grafica de los datos Obtenidos</h3>
+<hr>
+<br>
+<div class="card cards  mb-3">
+    <img src="data:image/png;base64,{{imagen}}" class="img-fluid rounded-start" alt="grafica">
+    <div class="card cards text-center ">
+        <div class="card-header" style="font-family: 'Lucida Sans';">
+            <h5>Grafica de las congruencias multiplicativas obteniendo los datos generados </h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Un algoritmo que se utiliza para generar números pseudo aleatorios, es el algoritmo
+                congruencia multiplicativo. Tiene como base al algoritmo congruencia lineal pero conlleva una operación
+                menos.
+                Es decir, se toma una semilla a la que llamaremos X_{0}X. Se multiplica por un número a y al resultado
+                de la
+                multiplicación se divide por m recuperando solo el residuo o módulo de la división. Este valor será X1,
+                y así
+                sucesivamente mejorando la eficiencia</p>
+        </div>
+    </div>
+</div>
+{% else %}
+<br><br>
+<center>
+    <h4 style="font-family:monospace;"><strong>Congruencia Multiplicativo</strong></h4>
+    <hr>
+    {% if error %}
+    <div class="alert alert-success" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <br><br>
+    <div class="card" style="width: 40rem;">
+        <div class="card-body">
+            <form action="/congruencialMultiplicativo" method="POST">
+                <div class="mb-3">
+                    <input type="number" class="form-control" placeholder="Cantidad de números a generar" name="n"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control" placeholder="X0" name="x" required>
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control" placeholder="a" name="a" required>
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control" placeholder="m" name="m" required>
+                </div>
+                <button type="submit" class="btn boton"><i class="bi bi-file-earmark-diff"></i>
+                    Calcular</button>
+            </form>
+        </div>
+    </div>
+</center>
+<br><br><br><br>
+{% endif %}
+{% endblock %}

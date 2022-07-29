@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block title %} Suavización exponencial {% endblock %}
+{% block content %}
+{% if cargar %}
+<center>
+    <br><br>
+    <h4 style="font-family:monospace;"><strong>Grafica de los resultados</strong></h4>
+    <hr>
+</center>
+<h3 style="font-family:monospace;"><i class="bi bi-app-indicator"></i> Datos Obtenidos</h3>
+<hr>
+<br>
+<div class="card cards">
+    <div class="card-body">
+        <table class="dataTable table table-bordered table-hover">
+            <thead>
+                {% for i in datos.columns %}
+                <th>{{ i }}</th>
+                {% endfor %}
+            </thead>
+            <tbody>
+                {% for i in datos.iterrows() %}
+                <tr>
+                    <td>{{ i[1][0] }}</td>
+                    <td>{{ i[1][1] }}</td>
+                    <td>{{ i[1][2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<br><br>
+
+{% else %}
+<br><br>
+<center>
+    <h4 style="font-family:monospace;"><strong>Suavización exponencial</strong></h4>
+    <hr>
+    {% if error %}
+    <div class="alert alert-success" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <br><br><br>
+    <div class="card" style="width: 40rem;">
+        <div class="card-body">
+            <form action="/suavizacionExponencial" method="POST">
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Nombre del eje X"  name="xlbl" required >
+                </div>
+                <div class="mb-3">
+                    <textarea  name="x"  rows="3" class="form-control"  placeholder="Datos del eje X (solo numeros seperados por , )" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <input type="text"   class="form-control"  placeholder="Nombre del eje Y"   name="ylbl"  required >
+                </div>
+                <div class="mb-3">
+                    <textarea  name="y"   rows="3" class="form-control" placeholder="Datos del eje Y (solo numeros seperados por , )"  required></textarea>
+                </div>
+                <button type="submit"  class="btn boton" >Calcular</button>
+            </form>
+        </div>
+    </div>
+</center>
+<br><br><br>
+
+{% endif %}
+{% endblock %}

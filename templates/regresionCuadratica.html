@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %} Regresión cuadrática {% endblock %}
+{% block content %}
+{% if imagen %}
+<center>
+    <br><br>
+    <h4 style="font-family:monospace;"><strong>Grafica de los resultados</strong></h4>
+    <hr>
+</center>
+<h3 style="font-family:monospace;"><i class="bi bi-app-indicator"></i> Datos Obtenidos</h3>
+<hr>
+<div class="card cards  mb-3">
+    <img src="data:image/png;base64,{{imagen}}" class="img-fluid rounded-start" alt="grafica">
+    <div class="card cards text-center ">
+        <div class="card-header" style="font-family: 'Lucida Sans';">
+            <h5>Grafica de Regresion Cadratica</h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Regresion Cuadratica</p>
+        </div>
+    </div>
+</div>
+{% else %}
+
+<br><br>
+<center>
+    <h4 style="font-family:monospace;"><strong>Regresión Cuadratica</strong></h4>
+    <hr>
+    {% if error %}
+    <div class="alert alert-success" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <br><br><br><br>
+    <div class="card" style="width: 40rem;">
+        <div class="card-body">
+            <form action="/regresionCuadratica" method="post">
+                <div class="mb-3">
+                    <input type="text"   class="form-control" placeholder="Nombre del eje X" name="xlbl" required >
+                </div>
+                <div class="mb-3">  <textarea  name="x"   rows="3" class="form-control" placeholder="Datos del eje X (solo numeros seperados por , )" required ></textarea>
+                </div>
+                <div class="mb-3">
+                    <input type="text"  class="form-control"  placeholder="Nombre del eje Y"   name="ylbl"  required>
+                </div>
+                <div class="mb-3">
+                    <textarea name="y"   rows="3" class="form-control" placeholder="Datos del eje Y (solo numeros seperados por , )" required></textarea>
+                </div>
+                <button  type="submit" class="btn boton">Graficar</button>
+            </form>
+        </div>
+    </div>
+</center>
+<br><br><br><br>
+
+{% endif %}
+{% endblock %}

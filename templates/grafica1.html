@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Análisis Precio {% endblock %}
+{% block content %}
+<br>
+<div class="row">
+  <div class="col-sm-12 text-center">
+    <h3 style="font-family:monospace;">Grafico donde se muestra precio de las bitcoins en el mercado</h3>
+  </div>
+</div>
+<hr>
+<br>
+<div class="card border-secondary mb-3">
+  <img src="data:image/png;base64,{{imagen1}}"  class="img-fluid rounded-start" alt="grafica">
+  <div class="card text-center border-secondary">
+    <div class="card-header border-secondary" style="font-family: 'Lucida Sans';">
+      <h5>Precio de las Bitcoin en el mercado de acuerdo a la fecha</h5>
+    </div>
+    <div class="card-body">
+      <p class="card-text">Las criptomonedas Bitcoin han aumentado considerablemente de valor a medida que pasa el
+      tiempo y esperan que siga subiendo. Ya que algunos de los movimientos bruscos recientes en Bitcoin son
+      especulativos, pero el aumento de valor proviene del crecimiento del tamaño de la red </p>
+      <button class="boton" style="width: 300px;" OnClick="location.href='/Analisis'" type="button"><i class="bi bi-box-arrow-in-up-right"></i> Atras </button>
+    </div>
+  </div>
+  </div>
+  
+{% endblock %}

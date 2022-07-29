@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %} Montecarlo {% endblock %}
+{% block content %}
+
+<center>
+    <br><br>
+    <h4 style="font-family:monospace;"><strong>Grafica de los resultados</strong></h4>
+    <hr>
+</center>
+<h3 style="font-family:monospace;"><i class="bi bi-app-indicator"></i> Datos Obtenidos</h3>
+<hr>
+<br>
+<div class="card cards">
+    <div class="card-body">
+        {{data|safe}}
+    </div>
+</div>
+<div class="container col-md-6 mb-3">
+    <p class="">El total de ventas es <strong>{{data3|safe}}</strong> </p>
+
+</div>
+<h3 style="font-family:monospace;"><i class="bi bi-app-indicator"></i> Simulacion</h3>
+<hr>
+<br>
+<div class="card cards">
+    <div class="card-body">
+        {{data2|safe}}
+    </div>
+</div>
+<br><br>
+<hr>
+<h3 style="font-family:monospace;"><i class="bi bi-bar-chart-line"></i> Grafica de los datos Obtenidos</h3>
+<hr>
+<br>
+<div class="card cards  mb-3">
+    <img src="data:image/png;base64,{{image}}" class="img-fluid rounded-start" alt="grafica">
+    <div class="card cards text-center ">
+        <div class="card-header" style="font-family: 'Lucida Sans';">
+            <h5>Grafica de Montecarlo </h5>
+        </div>
+        <div class="card-body">
+            <p class="card-text"> Una ecuación de congruencia es una congruencia entre expresiones literales, los valores que
+                la satisfacen son sus soluciones. Por ejemplo 13x ≡ 5 (mod 77) es una ecuación de congruencia.
+                Para poder encontrar la solución de una congruencia lineal en primer lugar hay que saber hallar el inverso de a
+                (mod m) Este inverso, a’, es un número tal que a’*a ≡ 1 (mod m). La condición necesaria y suficiente para que
+                dos números a y b sean congruentes respecto al módulo m es que su diferencia sea un múltiplo de m, es decir, m |
+                (a -b)</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

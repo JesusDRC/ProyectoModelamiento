@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block title %} Pronosticos {% endblock %}
+{% block content %}
+<br>
+<div class="row">
+    <div class="col-sm-12 text-center">
+        <h3 style="font-family:monospace;">Capitulo 4: Pronosticos</h3>
+    </div>
+</div>
+<hr>
+<br>
+<div class="card-group">
+    <div class="card cards">
+        <img src="{{ url_for('static', filename='promediomovil.jpg') }}" class="card-img-top" alt="Promedio Movil">
+        <div class="card-body" align="justify">
+            <h5 class="card-title" align="center">Promedio Movil</h5>
+            <p class="card-text">Los promedios móviles son promedios calculados a partir de subgrupos 
+                artificiales de observaciones consecutivas. En las gráficas de control, usted puede 
+                crear una gráfica de promedio móvil para los datos de tiempo ponderados. En los 
+                análisis de series de tiempo, Minitab utiliza el promedio móvil para suavizar los datos
+                 y reducir las fluctuaciones aleatorias en una serie de tiempo.
+            </p>
+            <center>
+                <button class="btn btn-secondary" OnClick="location.href='/promedioMovil'" type="button">  Mostrar </button>
+            </center>
+        </div>
+    </div>
+    <div class="card cards">
+        <img src="{{ url_for('static', filename='Suavizamientoexponencial.jpg') }}" class="card-img-top"
+            alt="Suavizamiento Exponencial">
+        <div class="card-body" align="justify">
+            <h5 class="card-title" align="center">Suavizamiento exponencial</h5>
+            <p class="card-text">El método de suavización exponencial utiliza 
+                los promedios históricos de una variable en un período para intentar 
+                predecir su comportamiento futuro. <br>
+                Por tanto, de lo que se trata es de predecir qué va a pasar y lo que 
+                hace es suavizar la serie temporal. El objetivo es reducir las fluctuaciones 
+                y conseguir observar una tendencia que a veces no está clara a simple vista. 
+                Es muy utilizado, sobre todo, en previsión de ventas y ha demostrado una 
+                eficacia más que aceptable.
+             </p>
+            <center>
+                <button class="btn btn-secondary" OnClick="location.href='/suavizacionExponencial'" type="button">  Mostrar </button>
+            </center>
+        </div>
+    </div>
+    <div class="card cards">
+        <img src="{{ url_for('static', filename='regresionlineal.jpg') }}" class="card-img-top" alt="Regresion Lineal">
+        <div class="card-body" align="justify">
+            <h5 class="card-title" align="center">Regresion Lineal</h5>
+            <p class="card-text">La regresión lineal es una técnica de modelado estadístico 
+                que se emplea para describir una variable de respuesta continua como una función 
+                de una o varias variables predictoras. Puede ayudar a comprender y predecir el 
+                comportamiento de sistemas complejos o a analizar datos experimentales, financieros 
+                y biológicos.
+            </p>
+            <center>
+                
+                <button class="btn btn-secondary" OnClick="location.href='/regresionLineal'" type="button">  Mostrar </button>
+            </center>
+        </div>
+    </div>
+    <div class="card cards">
+        <img src="{{ url_for('static', filename='regresioncuadratica.png') }}" class="card-img-top">
+        <div class="card-body" align="justify">
+            <h5 class="card-title" align="center">Regresion Cuadratica</h5>
+            <p class="card-text">La regresión cuadrática es el proceso por
+                el cuál encontramos los parámetros de una
+                parábola que mejor se ajusten a una serie de
+                datos que poseemos, ya sean mediciones
+                hechas o de otro tipo. Bueno, pero por que
+                habríamos de querer ajustar nuestros datos
+                precisamente a una parábola y no a otra
+                función.
+                
+            </p>
+            <center>
+                <button class="btn btn-secondary" OnClick="location.href='/regresionCuadratica'" type="button">  Mostrar </button>
+            </center>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

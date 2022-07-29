@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %} Numeros Aleatorios {% endblock %}
+{% block content %}
+<br>
+<div class="row">
+  <div class="col-sm-12 text-center">
+    <h3 style="font-family:monospace;">Capitulo 3: Numeros Aleatorios</h3>
+  </div>
+</div>
+<hr>
+<br>
+<div class="card-group">
+  <div class="card cards">
+    <img src="{{ url_for('static', filename='cuadradosmedios.png') }}" class="card-img-top" alt="Cuadrados Medios">
+    <div class="card-body" align="justify">
+      <h5 class="card-title">Método de Cuadrados Medios</h5>
+      <p class="card-text">Es un método propuesto en los años 40 por los matemáticos 
+        John von Neumann y Nicholas Metropolis, siendo utilizado para la generación de números pseudoaleatorios, 
+        Esto para obtener una sucesión de números que básicamente se obtienen a partir de recurrencia, los cuales 
+        son relevantes en los procesos de simulación debido a que con estos números se hace posible comprobar el 
+        correcto funcionamiento de una prueba mediante la observación del comportamiento de las variables que se 
+        puedan encontrar a lo largo de la simulación. </p>
+        <center>
+          <button class="btn btn-secondary" OnClick="location.href='/cuadradosMedios'" type="button">  Mostrar </button>
+        </center>
+    </div>
+  </div>
+  <div class="card cards">
+    <img src="{{ url_for('static', filename='congruencialineal.png') }}" class="card-img-top" alt="Congruencia lineal">
+    <div class="card-body" align="justify">
+      <h5 class="card-title">Método de Congruencia Lineal</h5>
+      <p class="card-text">  
+        Es un algoritmo que permite obtener una secuencia de números pseudoaleatorios 
+        calculados con una función lineal definida a trozos discontinua. 
+        Es uno de los métodos más antiguos y conocidos para la generación de números pseudoaleatorios.
+        La teoría que sustenta el proceso es relativamente fácil de entender, el algoritmo en sí es de fácil 
+        implementación y su ejecución es rápida, especialmente cuando el hardware del ordenador puede soportar 
+        aritmética modular al truncar el bit de almacenamiento correspondiente. </p>
+        <center>
+          <button class="btn btn-secondary" OnClick="location.href='/congruenciaLineal'" type="button">  Mostrar </button>
+        </center>
+    </div>
+  </div>
+  <div class="card cards">
+    <img src="{{ url_for('static', filename='congruencialmultiplicativo.jpg') }}" class="card-img-top"
+      alt="Congruencia multiplicativo">
+    <div class="card-body" align="justify">
+      <h5 class="card-title">Método de Congruencia Multiplicativo</h5>
+      <p class="card-text">
+        De acuerdo con Banks, Carson, Nelson y Nicol, las condiciones que deben cumplir 
+        los parámetros para que el algoritmo congruencial multiplicativo alcance su máximo periodo son:  a= 3 + 8k ó a = 5 + 8k, En donde: k= 0,1,2,3,..n.
+        <br> Un algoritmo que se utiliza para generar números pseudo aleatorios,
+         es el algoritmo congruencia multiplicativo. Tiene como base al algoritmo congruencia 
+         lineal pero conlleva una operación menos. <br>
+         La ventaja de este método es que en comparación con el algoritmo lineal, este implica una operación menos.
+
+        </p>
+        <center>
+          <button class="btn btn-secondary" OnClick="location.href='/congruencialMultiplicativo'" type="button">  Mostrar </button>
+        </center>
+    </div>
+  </div>
+  <div class="card cards">
+    <img src="{{ url_for('static', filename='poisson.jpg') }}" class="card-img-top" >
+    <div class="card-body" align="justify">
+    <h5 class="card-title">Distribuccion de Poisson </h5>
+    <p class="card-text">Es una distribución de probabilidad discreta que modeliza la
+       frecuencia de eventos determinados durante un intervalo de tiempo fijado a partir 
+       de la frecuencia media de aparición de dichos eventos. <br>
+       En otras palabras, la distribución de Poisson es una distribución de probabilidad
+        discreta que, tan solo conociendo los eventos y su frecuencia media de ocurrencia, 
+        podemos saber su probabilidad.
+    </p>
+    <center>
+      <button class="btn btn-secondary" OnClick="location.href='/distribucionPoisson'" type="button">  Mostrar </button>
+    </center>
+  </div>
+</div>
+</div>
+
+{% endblock %}
